@@ -1,65 +1,214 @@
-import Image from "next/image";
+"use client";
+
+import { useState } from "react";
+import Header from "@/components/Header";
+import TerminalBlock from "@/components/TerminalBlock";
+import CommandPrompt from "@/components/CommandPrompt";
+import Link from "next/link";
 
 export default function Home() {
+  const [showInteractive, setShowInteractive] = useState(false);
+
+  const projects = [
+    {
+      name: "Terra Bloom",
+      url: "https://terra-bloom.vercel.app/",
+      description: "E-commerce platform for plants and gardening",
+      tech: "React, Next.js, Tailwind",
+    },
+    {
+      name: "Mr Frames Kenya",
+      url: "https://mr-frames-ke.vercel.app/",
+      description: "E-commerce platform for frames and art",
+      tech: "React, Node.js, MongoDB",
+    },
+    {
+      name: "Study Buddy AI",
+      url: "https://study-buddy-ai.vercel.app",
+      description: "AI-powered study assistant application",
+      tech: "Next.js, OpenAI, TypeScript",
+    },
+    {
+      name: "Clinical Forex",
+      url: "https://clinicalforex.com/",
+      description: "Forex trading education platform",
+      tech: "React, Node.js, Express",
+    },
+    {
+      name: "Smart Tech Stores",
+      url: "https://smart-tech-stores.vercel.app/",
+      description: "E-commerce platform for tech products",
+      tech: "Next.js, Stripe, MongoDB",
+    },
+  ];
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <main className="min-h-screen bg-black text-white">
+      <div className="max-w-5xl mx-auto px-6 py-12 md:py-16">
+        {/* Header Navigation */}
+        <Header />
+
+        {/* Hero Section */}
+        <section className="mb-20">
+          <TerminalBlock>
+            <div className="mb-3">
+              <span className="text-gray-500">john@portfolio:~$</span> whoami
+            </div>
+            <div className="ml-6 space-y-2">
+              <div>
+                <span className="text-green-500">●</span> Software Engineer |
+                Full-Stack Developer
+              </div>
+              <div>
+                <span className="text-yellow-500">●</span> Building innovative
+                solutions across web, mobile & AI
+              </div>
+            </div>
+          </TerminalBlock>
+
+          <div className="my-16 text-center">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6">
+              # HI, I&apos;M JOHN KIOKO
+              <span className="animate-pulse ml-2">_</span>
+            </h1>
+            <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+              Software engineer with expertise in front-end, back-end, mobile
+              development, and UI/UX design.
+              <br />
+              Passionate about building transformative digital experiences.
+            </p>
+          </div>
+        </section>
+
+        {/* Skills/Tech Stack */}
+        <section className="mb-20">
+          <TerminalBlock>
+            <div className="mb-6">
+              <span className="text-gray-500">john@portfolio:~$</span> grep
+              &quot;${"{LANG}"}&quot; /var/log/activity.log
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+              <div className="border border-gray-700 p-4 text-center hover:border-gray-500 transition-colors">
+                <div className="font-bold mb-1">JavaScript</div>
+                <div className="text-sm text-gray-500">(ES6+)</div>
+              </div>
+              <div className="border border-gray-700 p-4 text-center hover:border-gray-500 transition-colors">
+                <div className="font-bold mb-1">TypeScript</div>
+                <div className="text-sm text-gray-500">(Type-safe)</div>
+              </div>
+              <div className="border border-gray-700 p-4 text-center hover:border-gray-500 transition-colors">
+                <div className="font-bold mb-1">React</div>
+                <div className="text-sm text-gray-500">(+ Next.js)</div>
+              </div>
+              <div className="border border-gray-700 p-4 text-center hover:border-gray-500 transition-colors">
+                <div className="font-bold mb-1">React Native</div>
+                <div className="text-sm text-gray-500">(Mobile)</div>
+              </div>
+              <div className="border border-gray-700 p-4 text-center hover:border-gray-500 transition-colors">
+                <div className="font-bold mb-1">Node.js</div>
+                <div className="text-sm text-gray-500">(+ Express)</div>
+              </div>
+              <div className="border border-gray-700 p-4 text-center hover:border-gray-500 transition-colors">
+                <div className="font-bold mb-1">Python</div>
+                <div className="text-sm text-gray-500">(Backend/ML)</div>
+              </div>
+              <div className="border border-gray-700 p-4 text-center hover:border-gray-500 transition-colors">
+                <div className="font-bold mb-1">MongoDB</div>
+                <div className="text-sm text-gray-500">(NoSQL)</div>
+              </div>
+              <div className="border border-gray-700 p-4 text-center hover:border-gray-500 transition-colors">
+                <div className="font-bold mb-1">Tailwind</div>
+                <div className="text-sm text-gray-500">(CSS)</div>
+              </div>
+            </div>
+            <div className="text-sm text-gray-500">
+              Also: PHP, Machine Learning, Figma (UI/UX Design)
+            </div>
+          </TerminalBlock>
+        </section>
+
+        {/* Projects Section */}
+        <section className="mb-20">
+          <h2 className="text-3xl mb-6 text-center">
+            <span className="text-gray-500">/*</span> PROJECTS{" "}
+            <span className="text-gray-500">*/</span>
+          </h2>
+          <TerminalBlock>
+            <div className="mb-6">
+              <span className="text-gray-500">john@portfolio:~$</span> ls -lah
+              ~/projects/
+            </div>
+            <div className="space-y-6">
+              {projects.map((project, index) => (
+                <div key={index}>
+                  <div className="text-white mb-1">drwxr-xr-x</div>
+                  <div className="ml-6">
+                    <Link
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-bold text-lg mb-2 hover:text-gray-400 transition-colors inline-block"
+                    >
+                      {project.name}/
+                    </Link>
+                    <div className="text-gray-400 mb-1">
+                      {project.description}
+                    </div>
+                    <div className="text-sm text-gray-600">
+                      Tech: {project.tech}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </TerminalBlock>
+        </section>
+
+        {/* Interactive Terminal */}
+        <section className="mb-20">
+          <div className="mb-6 text-center">
+            <button
+              onClick={() => setShowInteractive(!showInteractive)}
+              className="border border-white px-8 py-3 hover:bg-white hover:text-black transition-colors text-sm"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
+              {showInteractive ? "[-] Hide" : "[+] Show"} Interactive Terminal
+            </button>
+          </div>
+          {showInteractive && <CommandPrompt />}
+        </section>
+
+        {/* Footer */}
+        <footer className="text-center py-12 border-t border-gray-800">
+          <div className="flex justify-center gap-4 mb-6 flex-wrap">
             <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              href="https://github.com/johnkioko"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border border-white px-6 py-2 hover:bg-white hover:text-black transition-colors text-sm"
             >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+              github
+            </a>
+            <a
+              href="https://linkedin.com/in/johnkioko"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border border-white px-6 py-2 hover:bg-white hover:text-black transition-colors text-sm"
+            >
+              linkedin
+            </a>
+            <a
+              href="mailto:johnmwanzia277@gmail.com"
+              className="border border-white px-6 py-2 hover:bg-white hover:text-black transition-colors text-sm"
+            >
+              email
+            </a>
+          </div>
+          <div className="text-sm text-gray-500">
+            <span className="text-gray-600">$</span> Built with Next.js &
+            Tailwind CSS
+          </div>
+        </footer>
+      </div>
+    </main>
   );
 }
