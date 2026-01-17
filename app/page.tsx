@@ -67,8 +67,8 @@ export default function Home() {
           </TerminalBlock>
 
           <div className="my-16 text-center">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              # HI, I&apos;M JOHN KIOKO
+            <h1 className="text-4xl font-bold mb-6">
+              # HI, I&apos;M MWANZIA
               <span className="animate-pulse ml-2">_</span>
             </h1>
             <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
@@ -88,37 +88,37 @@ export default function Home() {
               &quot;${"{LANG}"}&quot; /var/log/activity.log
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-              <div className="border border-gray-700 p-4 text-center hover:border-gray-500 transition-colors">
+              <div className="border border-neutral-700 p-4 text-center">
                 <div className="font-bold mb-1">JavaScript</div>
                 <div className="text-sm text-gray-500">(ES6+)</div>
               </div>
-              <div className="border border-gray-700 p-4 text-center hover:border-gray-500 transition-colors">
+              <div className="border border-neutral-700 p-4 text-center">
                 <div className="font-bold mb-1">TypeScript</div>
                 <div className="text-sm text-gray-500">(Type-safe)</div>
               </div>
-              <div className="border border-gray-700 p-4 text-center hover:border-gray-500 transition-colors">
+              <div className="border border-neutral-700 p-4 text-center">
                 <div className="font-bold mb-1">React</div>
                 <div className="text-sm text-gray-500">(+ Next.js)</div>
               </div>
-              <div className="border border-gray-700 p-4 text-center hover:border-gray-500 transition-colors">
+              <div className="border border-neutral-700 p-4 text-center">
                 <div className="font-bold mb-1">React Native</div>
                 <div className="text-sm text-gray-500">(Mobile)</div>
               </div>
-              <div className="border border-gray-700 p-4 text-center hover:border-gray-500 transition-colors">
+              <div className="border border-neutral-700 p-4 text-center">
                 <div className="font-bold mb-1">Node.js</div>
                 <div className="text-sm text-gray-500">(+ Express)</div>
               </div>
-              <div className="border border-gray-700 p-4 text-center hover:border-gray-500 transition-colors">
+              <div className="border border-neutral-700 p-4 text-center">
                 <div className="font-bold mb-1">Python</div>
                 <div className="text-sm text-gray-500">(Backend/ML)</div>
               </div>
-              <div className="border border-gray-700 p-4 text-center hover:border-gray-500 transition-colors">
+              <div className="border border-neutral-700 p-4 text-center">
+                <div className="font-bold mb-1">Golang</div>
+                <div className="text-sm text-gray-500">(Backend)</div>
+              </div>
+              <div className="border border-neutral-700 p-4 text-center">
                 <div className="font-bold mb-1">MongoDB</div>
                 <div className="text-sm text-gray-500">(NoSQL)</div>
-              </div>
-              <div className="border border-gray-700 p-4 text-center hover:border-gray-500 transition-colors">
-                <div className="font-bold mb-1">Tailwind</div>
-                <div className="text-sm text-gray-500">(CSS)</div>
               </div>
             </div>
             <div className="text-sm text-gray-500">
@@ -141,16 +141,18 @@ export default function Home() {
             <div className="space-y-6">
               {projects.map((project, index) => (
                 <div key={index}>
-                  <div className="text-white mb-1">drwxr-xr-x</div>
-                  <div className="ml-6">
+                  <div className="flex items-center gap-4 mb-1">
+                    <span className="text-white">drwxr-xr-x</span>
                     <Link
                       href={project.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-bold text-lg mb-2 hover:text-gray-400 transition-colors inline-block"
+                      className="font-bold text-lg hover:text-gray-400 transition-colors underline"
                     >
                       {project.name}/
                     </Link>
+                  </div>
+                  <div className="ml-6">
                     <div className="text-gray-400 mb-1">
                       {project.description}
                     </div>
@@ -181,7 +183,7 @@ export default function Home() {
         <footer className="text-center py-12 border-t border-gray-800">
           <div className="flex justify-center gap-4 mb-6 flex-wrap">
             <a
-              href="https://github.com/johnkioko"
+              href="https://github.com/John-Mwanzia"
               target="_blank"
               rel="noopener noreferrer"
               className="border border-white px-6 py-2 hover:bg-white hover:text-black transition-colors text-sm"
@@ -189,7 +191,7 @@ export default function Home() {
               github
             </a>
             <a
-              href="https://linkedin.com/in/johnkioko"
+              href="https://www.linkedin.com/in/john-mwanzia-08a236262/"
               target="_blank"
               rel="noopener noreferrer"
               className="border border-white px-6 py-2 hover:bg-white hover:text-black transition-colors text-sm"
