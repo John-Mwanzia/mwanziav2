@@ -5,7 +5,7 @@ import { commands } from "@/lib/commands";
 
 interface OutputLine {
   type: "command" | "output" | "error";
-  content: string | JSX.Element;
+  content: string | React.ReactElement;
 }
 
 export default function Terminal() {
@@ -15,23 +15,6 @@ export default function Terminal() {
   const [historyIndex, setHistoryIndex] = useState(-1);
   const inputRef = useRef<HTMLInputElement>(null);
   const outputRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    // Welcome message
-    setOutput([
-      { type: "output", content: getWelcomeMessage() },
-      { type: "output", content: "" },
-      { type: "output", content: 'Type "help" to see available commands.' },
-      { type: "output", content: "" },
-    ]);
-  }, []);
-
-  useEffect(() => {
-    // Auto-scroll to bottom
-    if (outputRef.current) {
-      outputRef.current.scrollTop = outputRef.current.scrollHeight;
-    }
-  }, [output]);
 
   const getWelcomeMessage = () => {
     return (
@@ -53,6 +36,23 @@ Welcome to my terminal portfolio!
       </pre>
     );
   };
+
+  useEffect(() => {
+    // Welcome message
+    setOutput([
+      { type: "output", content: getWelcomeMessage() },
+      { type: "output", content: "" },
+      { type: "output", content: 'Type "help" to see available commands.' },
+      { type: "output", content: "" },
+    ]);
+  }, []);
+
+  useEffect(() => {
+    // Auto-scroll to bottom
+    if (outputRef.current) {
+      outputRef.current.scrollTop = outputRef.current.scrollHeight;
+    }
+  }, [output]);
 
   const handleCommand = (cmd: string) => {
     const trimmedCmd = cmd.trim();
@@ -132,7 +132,7 @@ Welcome to my terminal portfolio!
       // Simple autocomplete
       const availableCommands = Object.keys(commands);
       const matches = availableCommands.filter((cmd) =>
-        cmd.startsWith(input.toLowerCase())
+        cmd.startsWith(input.toLowerCase()),
       );
       if (matches.length === 1) {
         setInput(matches[0]);
@@ -154,8 +154,8 @@ Welcome to my terminal portfolio!
                 line.type === "command"
                   ? "text-[#00d9ff]"
                   : line.type === "error"
-                  ? "text-[#ff5555]"
-                  : "text-[#00ff00]"
+                    ? "text-[#ff5555]"
+                    : "text-[#00ff00]"
               }`}
             >
               {line.content}

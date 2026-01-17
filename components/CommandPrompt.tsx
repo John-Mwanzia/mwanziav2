@@ -1,11 +1,11 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { commands } from "@/lib/commands";
 
 interface OutputLine {
   type: "command" | "output" | "error";
-  content: string | JSX.Element;
+  content: string | React.ReactElement;
 }
 
 export default function CommandPrompt() {
@@ -100,7 +100,7 @@ export default function CommandPrompt() {
       e.preventDefault();
       const availableCommands = Object.keys(commands);
       const matches = availableCommands.filter((cmd) =>
-        cmd.startsWith(input.toLowerCase())
+        cmd.startsWith(input.toLowerCase()),
       );
       if (matches.length === 1) {
         setInput(matches[0]);
@@ -121,8 +121,8 @@ export default function CommandPrompt() {
               line.type === "command"
                 ? "text-gray-500"
                 : line.type === "error"
-                ? "text-red-500"
-                : "text-white"
+                  ? "text-red-500"
+                  : "text-white"
             }`}
           >
             {line.content}

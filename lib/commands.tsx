@@ -1,6 +1,8 @@
+import React from "react";
+
 export const commands: Record<
   string,
-  (args: string[]) => JSX.Element | string
+  (args: string[]) => React.ReactElement | string
 > = {
   help: () => (
     <div>
