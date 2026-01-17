@@ -1,36 +1,132 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Terminal Portfolio
 
-## Getting Started
+A clean, terminal-style developer portfolio inspired by authentic command-line interfaces. Built with Next.js, TypeScript, and Tailwind CSS.
 
-First, run the development server:
+## Features
+
+- 🖥️ Clean terminal aesthetic with bordered blocks
+- ⌨️ Interactive command prompt with history (↑/↓)
+- 📝 Tab autocomplete
+- 📱 Fully responsive
+- ⚡ Next.js 15 + React 19
+- 🎨 Minimalist design, no flashy effects
+
+## Quick Start
 
 ```bash
+cd terminal-portfolio
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Customization Guide
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 1. Update Personal Info
 
-## Learn More
+Edit `app/page.tsx`:
 
-To learn more about Next.js, take a look at the following resources:
+- Change `YOUR_NAME` in the hero section
+- Update language percentages in the skills grid
+- Modify GitHub stats (repos, followers)
+- Add your actual projects with descriptions
+- Update contributing section with your OSS work
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 2. Interactive Terminal Commands
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Edit `lib/commands.tsx` to customize command outputs:
 
-## Deploy on Vercel
+- `whoami` - Your intro/tagline
+- `about` - Your story
+- `skills` - Tech stack
+- `projects` - Project list
+- `contact` - Contact info
+- `electronics` - Hobbies (or rename/remove)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 3. Styling
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Colors are in `app/globals.css`:
+
+- Green: `#00ff00`
+- Blue: `#00d9ff`
+- Yellow: `#ffff00`
+- Red: `#ff5555`
+- Gray borders: `#333`
+
+### 4. Add New Commands
+
+In `lib/commands.tsx`:
+
+```tsx
+export const commands: Record<
+  string,
+  (args: string[]) => JSX.Element | string
+> = {
+  // ... existing commands
+
+  blog: () => (
+    <div>
+      <div>Recent posts:</div>
+      <div className="ml-4">→ How I built this portfolio</div>
+    </div>
+  ),
+};
+```
+
+Don't forget to add it to the help command!
+
+## Structure
+
+```
+terminal-portfolio/
+├── app/
+│   ├── layout.tsx          # Root layout with font
+│   ├── page.tsx            # Main portfolio page
+│   └── globals.css         # Global styles
+├── components/
+│   ├── Header.tsx          # Navigation links
+│   ├── TerminalBlock.tsx   # Bordered terminal container
+│   └── CommandPrompt.tsx   # Interactive terminal
+└── lib/
+    └── commands.tsx        # Command definitions
+```
+
+## Deploy
+
+### Vercel (Recommended)
+
+```bash
+npm run build
+# Then push to GitHub and connect to Vercel
+```
+
+### Other Platforms
+
+Works on any platform that supports Next.js:
+
+- Netlify
+- Railway
+- Fly.io
+- Your own VPS
+
+## Tips
+
+- Keep the terminal blocks clean and readable
+- Use consistent spacing between sections
+- Don't overdo the effects - simplicity is key
+- Test on mobile - terminal UIs can be tricky on small screens
+- Add real data instead of placeholders for authenticity
+
+## Tech Stack
+
+- Next.js 15
+- React 19
+- TypeScript
+- Tailwind CSS
+- JetBrains Mono font
+
+## License
+
+MIT - Feel free to use this as a template for your own portfolio!
+# mwanziav2
